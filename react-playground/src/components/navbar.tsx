@@ -37,12 +37,12 @@ const ListItemMap:any = components.map((component) => {
 
 export default function Navbar(){
     return(
-            <NavigationMenu>
-                <NavigationMenuList>
-                    {ListItemMap}
+            <NavigationMenu className="gap-70 justify-between">
+                <NavigationMenuList className="gap-2 w-110 justify-end">
+                        {ListItemMap}
                 </NavigationMenuList>
 
-                <NavigationMenuList>
+                <NavigationMenuList className="gap-2 w-50">
                     <ListItem href=""><Moon /></ListItem>
                     <ListItem href=""><Bell /></ListItem>
                     <ListItem href=""><Settings /></ListItem>

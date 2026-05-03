@@ -3,7 +3,7 @@ import { CardImage } from "./components/cardimage";
 import Navbar from "./components/navbar";
 import { ThemeProvider } from "./components/ui/theme-provider";
 import FormInput from './components/form-input';
-import { Button } from './components/ui/button';
+import SubmitButton from './components/submit-button';
 
 const cardImageItems:{title:string, description:string, buttonText:string}[] = [
   {
@@ -70,7 +70,7 @@ export default function App(){
           <FormInput name="username" placeholder="John Doe" value={form.username} onChange={handleChange}/>
           <FormInput name="username" placeholder="John Doe" value={form.password} onChange={handleChange}/>
           {error && <p>{error}</p>}
-          <Button type="submit">Submit</Button>
+          <SubmitButton>
         </form>
       </section>
 

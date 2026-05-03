@@ -70,7 +70,7 @@ export default function App(){
           <FormInput name="username" placeholder="John Doe" value={form.username} onChange={handleChange}/>
           <FormInput name="username" placeholder="John Doe" value={form.password} onChange={handleChange}/>
           {error && <p>{error}</p>}
-          <SubmitButton>
+          <SubmitButton />
         </form>
       </section>
 

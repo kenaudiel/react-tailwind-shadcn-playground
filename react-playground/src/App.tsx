@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import { CardImage } from "./components/cardimage";
 import Navbar from "./components/navbar";
 import { ThemeProvider } from "./components/ui/theme-provider";
@@ -40,6 +40,8 @@ export default function App(){
   })
   const [error, setError] = useState<string>("")
 
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
   function handleChange(e:React.ChangeEvent<HTMLInputElement>){
     setForm(prev => {
       return {...prev, [e.target.name]:e.target.value}
@@ -51,6 +53,13 @@ export default function App(){
       if(form.username === "" || form.password === ""){
         setError("Error Woi")
       }
+
+      console.log(form)
+
+      setForm(prev => {
+        return {...prev, username:"", password:""}
+      })
+      inputRef.current?.focus();
     }
 
 	return(
@@ -67,8 +76,8 @@ export default function App(){
 
       <section className="p-20">
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
-          <FormInput name="username" placeholder="John Doe" value={form.username} onChange={handleChange}/>
-          <FormInput name="username" placeholder="John Doe" value={form.password} onChange={handleChange}/>
+          <FormInput ref={inputRef} name="username" placeholder="John Doe" value={form.username} onChange={handleChange}/>
+          <FormInput name="password" placeholder="12345" value={form.password} onChange={handleChange}/>
           {error && <p>{error}</p>}
           <SubmitButton />
         </form>
